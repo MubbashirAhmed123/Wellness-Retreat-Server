@@ -1,10 +1,15 @@
 const Sequelize = require('sequelize')
 require('dotenv').config()
-const sequelize = new Sequelize(process.env.DATA_BAS_NAME, 'postgres', process.env.PASSWORD, {
-  host: process.env.HOST,
-  dialect: 'postgres'
+const sequelize = new Sequelize(`postgresql://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATA_BAS_NAME}`,{
+ 
+  logging: false, 
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false 
+    }
+  }
 });
-
 
 const connectDb=async()=>{
 
