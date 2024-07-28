@@ -6,6 +6,7 @@ const Booking = require('../models/bookingModel')
 
 
 router.get('/api/bookings', async (req, res) => {
+  console.log('booking')
   try {
       const bookings = await Booking.findAll()
       res.json(bookings)

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 require('dotenv').config()
-const sequelize = new Sequelize(`postgresql://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATA_BAS_NAME}`,{
+const sequelize = new Sequelize(`postgres://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATA_BASE_NAME}`,{
  
   logging: false, 
   dialectOptions: {
